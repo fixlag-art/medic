@@ -1,6 +1,3 @@
-# Project: fixlag.art/medic — 共通CSSフルコード
-
-```css
 /* Base */
 :root{
   --ink:#232425; --ink-2:#4b5056; --bg:#fafafa; --card:#ffffff;
@@ -22,7 +19,7 @@ body{
 }
 img{max-width:100%; display:block}
 a{color:var(--brand); text-decoration:none}
-a:hover{text-decoration:underline}
+a:hover{ text-decoration:underline }
 .container{max-width:1080px; margin-inline:auto; padding:24px}
 
 /* Header */
@@ -46,11 +43,7 @@ a:hover{text-decoration:underline}
   white-space:nowrap;
 }
 .credit-badge b{ color:#fff }
-@media (max-width:520px){.credit-badge{ right:12px; bottom:10px; font-size:11px }}
-
-/* Credit (legacy card, not used now) */
-.credit{background:var(--card); border:1px solid var(--ring); border-radius:14px; padding:14px 16px; margin:20px auto}
-.credit p{margin:0; color:var(--ink-2)}
+@media (max-width:520px){ .credit-badge{ right:12px; bottom:10px; font-size:11px } }
 
 /* Chapter grid */
 .chapters{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; margin-top:18px}
@@ -82,20 +75,19 @@ a:hover{text-decoration:underline}
 .chapter-nav a.disabled{background:#c6cbd3; border-color:#b6bcc5; color:#fff; pointer-events:none}
 
 /* Footer */
-.site-footer{padding:24px; text-align:center; color:var(--muted)}
+.site-footer{padding:24px; text-align:center; color:#7b8794}
 
-/* ===== Theme overrides per chapter ===== */
-.theme-severe .site-header{background:linear-gradient(180deg,#7f1d1d 0%, var(--color-severe) 100%)}
+/* Chapter themes (header + buttons) */
+.theme-severe  .site-header{background:linear-gradient(180deg,#7f1d1d 0%, var(--color-severe) 100%)}
 .theme-glaring .site-header{background:linear-gradient(180deg,#8a3f00 0%, var(--color-glaring) 100%)}
-.theme-disaster .site-header{background:linear-gradient(180deg,#2d1f1a 0%, var(--color-disaster) 100%)}
-.theme-damage .site-header{background:linear-gradient(180deg,#3a0f57 0%, var(--color-damage) 100%)}
-.theme-revise .site-header{background:linear-gradient(180deg,#1f5b25 0%, var(--color-revise) 100%)}
-.theme-oldies .site-header{background:linear-gradient(180deg,#0f2f57 0%, var(--color-oldies) 100%)}
+.theme-disaster.site-header, .theme-disaster .site-header{background:linear-gradient(180deg,#2d1f1a 0%, var(--color-disaster) 100%)}
+.theme-damage  .site-header{background:linear-gradient(180deg,#3a0f57 0%, var(--color-damage) 100%)}
+.theme-revise  .site-header{background:linear-gradient(180deg,#1f5b25 0%, var(--color-revise) 100%)}
+.theme-oldies  .site-header{background:linear-gradient(180deg,#0f2f57 0%, var(--color-oldies) 100%)}
 
-.theme-severe .chapter-nav a{background:var(--color-severe); border-color:#8d1f1f}
+.theme-severe  .chapter-nav a{background:var(--color-severe); border-color:#8d1f1f}
 .theme-glaring .chapter-nav a{background:var(--color-glaring); border-color:#a84700}
 .theme-disaster .chapter-nav a{background:var(--color-disaster); border-color:#3b2923}
-.theme-damage .chapter-nav a{background:var(--color-damage); border-color:#4b1374}
-.theme-revise .chapter-nav a{background:var(--color-revise); border-color:#1f5b25}
-.theme-oldies .chapter-nav a{background:var(--color-oldies); border-color:#0f4b92}
-```
+.theme-damage  .chapter-nav a{background:var(--color-damage); border-color:#4b1374}
+.theme-revise  .chapter-nav a{background:var(--color-revise); border-color:#1f5b25}
+.theme-oldies  .chapter-nav a{background:var(--color-oldies); border-color:#0f4b92}
