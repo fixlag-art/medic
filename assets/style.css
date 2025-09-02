@@ -1,0 +1,75 @@
+/* Base */
+:root{
+--ink:#232425; --ink-2:#4b5056; --bg:#fafafa; --card:#ffffff;
+--brand:#0d66d0; --brand-2:#0a4fa4; --accent:#009167;
+--ring:#dde6f3; --muted:#7b8794;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+margin:0; background:var(--bg); color:var(--ink); line-height:1.7;
+font-family: system-ui, -apple-system, "Hiragino Sans", "Noto Sans JP", Segoe UI, Roboto, sans-serif;
+}
+img{max-width:100%; display:block}
+a{color:var(--brand); text-decoration:none}
+a:hover{text-decoration:underline}
+.container{max-width:1080px; margin-inline:auto; padding:24px}
+
+
+/* Header */
+.site-header{
+background:linear-gradient(180deg, #0f172a 0%, #121826 100%);
+color:#fff; padding:24px; position:relative; overflow:hidden;
+border-bottom:1px solid #0f253d;
+}
+.site-title{margin:0; font-size:28px; letter-spacing:0.02em}
+.site-sub{margin:4px 0 0; color:#c9d4e3; font-size:14px}
+.lang-switch{position:absolute; right:16px; top:16px}
+.lang-switch a{color:#cfe1ff; font-weight:600}
+
+
+/* Credit */
+.credit{background:var(--card); border:1px solid var(--ring); border-radius:14px; padding:14px 16px; margin:20px auto}
+.credit p{margin:0; color:var(--ink-2)}
+
+
+/* Chapter grid */
+.chapters{display:grid; grid-template-columns:repeat( auto-fit, minmax(220px,1fr)); gap:16px; margin-top:18px}
+.chapter{
+display:flex; flex-direction:column; gap:4px; padding:16px 14px; border-radius:16px;
+background:var(--card); border:1px solid var(--ring);
+transition:transform .2s ease, box-shadow .2s ease;
+}
+.chapter:hover{transform:translateY(-2px); box-shadow:0 6px 20px rgba(16,24,40,.08)}
+.chapter .kanji{font-size:40px; line-height:1; font-weight:800}
+.chapter .en{font-size:13px; color:var(--muted); text-transform:uppercase; letter-spacing:.08em}
+.chapter .desc{font-size:14px; color:var(--ink-2)}
+
+
+/* Chapter header */
+.chapter-header{padding:28px 16px 12px}
+.chapter-header h1{margin:0; font-size:36px}
+.chapter-header p{margin:6px 0 0; color:var(--ink-2)}
+
+
+/* Chapter nav buttons */
+.chapter-nav{display:flex; gap:10px; margin:26px 0}
+.chapter-nav a{
+flex:1; text-align:center; padding:12px 14px; border-radius:12px;
+background:var(--brand); color:#fff; font-weight:700; letter-spacing:.02em;
+border:1px solid #0b4e94; box-shadow:0 1px 0 rgba(255,255,255,.08) inset;
+transition:background .2s ease, transform .1s ease;
+}
+.chapter-nav a:hover{background:var(--brand-2); text-decoration:none}
+.chapter-nav a:active{transform:translateY(1px)}
+.chapter-nav a.disabled{background:#c6cbd3; border-color:#b6bcc5; color:#fff; pointer-events:none}
+
+
+/* Prose */
+.prose{max-width:760px; margin-inline:auto}
+.prose p{margin:1em 0}
+.prose hr{border:0; height:1px; background:var(--ring); margin:24px 0}
+
+
+/* Footer */
+.site-footer{padding:24px; text-align:center; color:var(--muted)}
