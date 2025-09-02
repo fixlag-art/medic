@@ -1,36 +1,41 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>激 | medic</title>
-<link rel="stylesheet" href="../assets/style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>激 | medic</title>
+  <!-- 共通CSS（キャッシュ破り用） -->
+  <link rel="stylesheet" href="../assets/style.css?v=2" />
+
+  <!-- favicon 共通 -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/fixlag_favicons/favicon-180x180.png?v=1">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/fixlag_favicons/favicon-32x32.png?v=1">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/fixlag_favicons/favicon-16x16.png?v=1">
 </head>
-<body>
-<header class="site-header">
-<div class="brand">
-<h1 class="site-title">激</h1>
-<p class="site-sub">はじまりの衝撃と気づき</p>
-</div>
-<nav class="lang-switch"><a href="index_en.html">English</a></nav>
-</header>
+<body class="theme-severe">
+  <header class="site-header">
+    <div class="brand">
+      <h1 class="site-title">激</h1>
+      <p class="site-sub">はじまりの衝撃と気づき</p>
+    </div>
+    <nav class="lang-switch"><a href="index_en.html">English</a></nav>
+    <!-- 作者／語り部をヘッダー右下に -->
+    <div class="credit-badge">作者: <b>ハッチー</b> ／ 語り部: <b>ロクさん</b></div>
+  </header>
 
+  <main class="container prose">
+    <p>（本文をここに）</p>
 
-<main class="container prose">
-<section class="credit"><p>作者：<strong>ハッチー</strong> ／ 語り部：<strong>ロクさん</strong></p></section>
+    <!-- 章ナビゲーション -->
+    <div class="chapter-nav">
+      <a class="disabled" href="#">← Previous</a>
+      <a href="../index_ja.html">↑ Top</a>
+      <a href="../glaring/index_ja.html">Forward →</a>
+    </div>
+  </main>
 
-
-<p>（本文をここに）</p>
-
-
-<div class="chapter-nav">
-<a class="disabled" href="#">← Previous</a>
-<a href="../index_ja.html">↑ Top</a>
-<a href="../glaring/index_ja.html">Forward →</a>
-</div>
-</main>
-
-
-<footer class="site-footer"><p>&copy; 2025 FIXLAG.ART / medic</p></footer>
+  <footer class="site-footer">
+    <p>&copy; 2025 FIXLAG.ART / medic</p>
+  </footer>
 </body>
 </html>
