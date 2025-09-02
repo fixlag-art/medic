@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>medic | Redirecting...</title>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+const lang = navigator.language || navigator.userLanguage || "en";
+location.href = lang.startsWith("ja") ? "index_ja.html" : "index_en.html";
+});
+</script>
+</head>
+<body>
+<p>Redirecting… / 自動的にページを切り替えています。</p>
+<p><a href="index_ja.html">日本語</a> / <a href="index_en.html">English</a></p>
+</body>
+</html>
