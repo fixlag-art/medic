@@ -51,6 +51,46 @@ transition:transform .2s ease, box-shadow .2s ease;
 .chapter-header h1{margin:0; font-size:36px}
 .chapter-header p{margin:6px 0 0; color:var(--ink-2)}
 
+/* ===== Theme colors for 6 chapters ===== */
+:root{
+  --color-severe:#c62828;   /* 激 */
+  --color-glaring:#e65100;  /* 甚 */
+  --color-disaster:#4e342e; /* 災 */
+  --color-damage:#6a1b9a;   /* 害 */
+  --color-revise:#2e7d32;   /* 復 */
+  --color-oldies:#1565c0;   /* 旧 */
+}
+
+/* ヘッダーを各章色に */
+.theme-severe  .site-header{background:linear-gradient(180deg,#7f1d1d 0%, var(--color-severe) 100%)}
+.theme-glaring .site-header{background:linear-gradient(180deg,#8a3f00 0%, var(--color-glaring) 100%)}
+.theme-disaster.site-header, .theme-disaster .site-header{background:linear-gradient(180deg,#2d1f1a 0%, var(--color-disaster) 100%)}
+.theme-damage  .site-header{background:linear-gradient(180deg,#3a0f57 0%, var(--color-damage) 100%)}
+.theme-revise  .site-header{background:linear-gradient(180deg,#1f5b25 0%, var(--color-revise) 100%)}
+.theme-oldies  .site-header{background:linear-gradient(180deg,#0f2f57 0%, var(--color-oldies) 100%)}
+
+/* 章ナビのボタン色も合わせる */
+.theme-severe  .chapter-nav a{background:var(--color-severe); border-color:#8d1f1f}
+.theme-glaring .chapter-nav a{background:var(--color-glaring); border-color:#a84700}
+.theme-disaster .chapter-nav a{background:var(--color-disaster); border-color:#3b2923}
+.theme-damage  .chapter-nav a{background:var(--color-damage); border-color:#4b1374}
+.theme-revise  .chapter-nav a{background:var(--color-revise); border-color:#1f5b25}
+.theme-oldies  .chapter-nav a{background:var(--color-oldies); border-color:#0f4b92}
+
+/* ===== Header credit badge（作者／語り部） ===== */
+.site-header{ position:relative; padding-bottom:56px; } /* バッジ分の余白を確保 */
+.credit-badge{
+  position:absolute; right:16px; bottom:12px;
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.25);
+  color:#e8f0ff; font-size:12px; padding:6px 10px; border-radius:10px;
+  backdrop-filter:saturate(120%) blur(6px);
+  white-space:nowrap;
+}
+.credit-badge b{ color:#fff }
+@media (max-width:520px){
+  .credit-badge{ right:12px; bottom:10px; font-size:11px }
+}
 
 /* Chapter nav buttons */
 .chapter-nav{display:flex; gap:10px; margin:26px 0}
