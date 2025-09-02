@@ -2,8 +2,16 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>404 | medic</title>
-  <link rel="stylesheet" href="/medic/assets/style.css?v=3">
+
+  <!-- 共通CSS -->
+  <link rel="stylesheet" href="/medic/assets/style.css?v=10" />
+
+  <!-- favicon（親の共通アセット） -->
+  <link rel="apple-touch-icon" sizes="180x180" href="https://fixlag.art/assets/fixlag_favicons/favicon-180x180.png?v=1">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://fixlag.art/assets/fixlag_favicons/favicon-32x32.png?v=1">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://fixlag.art/assets/fixlag_favicons/favicon-16x16.png?v=1">
 </head>
 <body>
   <header class="site-header">
@@ -12,13 +20,29 @@
       <p class="site-sub">URLが変更されたか、存在しない可能性があります。</p>
     </div>
   </header>
-  <main class="container prose">
-    <div class="chapter-nav">
-      <a href="/medic/index_ja.html">↑ Top</a>
-      <a href="/medic/severe/index_ja.html">Severe</a>
-      <a href="/medic/oldies/index_ja.html">Oldies</a>
-    </div>
+
+  <main class="container">
+    <section class="chapters">
+      <a class="chapter" href="/medic/index_ja.html">
+        <span class="kanji">↑</span>
+        <span class="en">Top</span>
+        <span class="desc">トップページに戻る</span>
+      </a>
+      <a class="chapter" href="/medic/severe/index_ja.html">
+        <span class="kanji">激</span>
+        <span class="en">Severe</span>
+        <span class="desc">はじまりの衝撃</span>
+      </a>
+      <a class="chapter" href="/medic/oldies/index_ja.html">
+        <span class="kanji">旧</span>
+        <span class="en">Oldies</span>
+        <span class="desc">昔日の記憶へ</span>
+      </a>
+    </section>
   </main>
-  <footer class="site-footer"><p>&copy; 2025 FIXLAG.ART / medic</p></footer>
+
+  <footer class="site-footer">
+    <p>&copy; 2025 FIXLAG.ART / medic</p>
+  </footer>
 </body>
 </html>
