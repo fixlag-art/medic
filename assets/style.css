@@ -1,8 +1,15 @@
-/* Base */
+/* ===========================
+   FIXLAG.ART / medic  common CSS
+   - Top pages: monochrome
+   - Chapter pages: themed by body.theme-*
+   =========================== */
+
+/* Base tokens */
 :root{
   --ink:#232425; --ink-2:#4b5056; --bg:#fafafa; --card:#ffffff;
   --brand:#0d66d0; --brand-2:#0a4fa4; --accent:#009167;
   --ring:#dde6f3; --muted:#7b8794;
+
   /* Chapter theme colors */
   --color-severe:#c62828;   /* 激 */
   --color-glaring:#e65100;  /* 甚 */
@@ -11,83 +18,106 @@
   --color-revise:#2e7d32;   /* 復 */
   --color-oldies:#1565c0;   /* 旧 */
 }
-*{box-sizing:border-box}
-html,body{height:100%}
+
+/* Reset-ish */
+*{ box-sizing:border-box }
+html,body{ height:100% }
 body{
   margin:0; background:var(--bg); color:var(--ink); line-height:1.7;
-  font-family: system-ui, -apple-system, "Hiragino Sans", "Noto Sans JP", Segoe UI, Roboto, sans-serif;
+  font-family:system-ui,-apple-system,"Hiragino Sans","Noto Sans JP",Segoe UI,Roboto,Arial,sans-serif;
 }
-img{max-width:100%; display:block}
-a{color:var(--brand); text-decoration:none}
+img{ max-width:100%; display:block }
+a{ color:var(--brand); text-decoration:none }
 a:hover{ text-decoration:underline }
-.container{max-width:1080px; margin-inline:auto; padding:24px}
+.container{ max-width:1080px; margin-inline:auto; padding:24px }
 
 /* Header */
 .site-header{
-  background:linear-gradient(180deg, #0f172a 0%, #121826 100%);
-  color:#fff; padding:24px; position:relative; overflow:hidden;
-  border-bottom:1px solid #0f253d; padding-bottom:56px;
+  background:linear-gradient(180deg,#0f172a 0%,#121826 100%);
+  color:#fff; padding:24px; padding-bottom:56px;
+  position:relative; overflow:hidden; border-bottom:1px solid #0f253d;
 }
-.site-title{margin:0; font-size:28px; letter-spacing:0.02em}
-.site-sub{margin:4px 0 0; color:#c9d4e3; font-size:14px}
-.lang-switch{position:absolute; right:16px; top:16px}
-.lang-switch a{color:#cfe1ff; font-weight:600}
+.site-title{ margin:0; font-size:28px; letter-spacing:.02em }
+.site-sub{ margin:6px 0 0; color:#c9d4e3; font-size:14px }
+.lang-switch{ position:absolute; right:16px; top:16px }
+.lang-switch a{ color:#cfe1ff; font-weight:600 }
 
-/* Header credit badge */
+/* Header credit badge (author / narrator) */
 .credit-badge{
   position:absolute; right:16px; bottom:12px;
   background:rgba(255,255,255,.08);
   border:1px solid rgba(255,255,255,.25);
   color:#e8f0ff; font-size:12px; padding:6px 10px; border-radius:10px;
-  backdrop-filter:saturate(120%) blur(6px);
-  white-space:nowrap;
+  backdrop-filter:saturate(120%) blur(6px); white-space:nowrap;
 }
 .credit-badge b{ color:#fff }
-@media (max-width:520px){ .credit-badge{ right:12px; bottom:10px; font-size:11px } }
+@media (max-width:520px){
+  .credit-badge{ right:12px; bottom:10px; font-size:11px }
+}
 
-/* Chapter grid */
-.chapters{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; margin-top:18px}
+/* Chapter grid (top pages) */
+.chapters{
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:16px; margin-top:18px;
+}
 .chapter{
-  display:flex; flex-direction:column; gap:4px; padding:16px 14px; border-radius:16px;
+  display:flex; flex-direction:column; gap:4px;
+  padding:16px 14px; border-radius:16px;
   background:var(--card); border:1px solid var(--ring);
   transition:transform .2s ease, box-shadow .2s ease;
 }
-.chapter:hover{transform:translateY(-2px); box-shadow:0 6px 20px rgba(16,24,40,.08)}
-.chapter .kanji{font-size:40px; line-height:1; font-weight:800}
-.chapter .en{font-size:13px; color:var(--muted); text-transform:uppercase; letter-spacing:.08em}
-.chapter .desc{font-size:14px; color:var(--ink-2)}
+.chapter:hover{ transform:translateY(-2px); box-shadow:0 6px 20px rgba(16,24,40,.08) }
+.chapter .kanji{ font-size:40px; line-height:1; font-weight:800 }
+.chapter .en{ font-size:13px; color:var(--muted); text-transform:uppercase; letter-spacing:.08em }
+.chapter .desc{ font-size:14px; color:var(--ink-2) }
 
 /* Prose */
-.prose{max-width:760px; margin-inline:auto}
-.prose p{margin:1em 0}
-.prose hr{border:0; height:1px; background:var(--ring); margin:24px 0}
+.prose{ max-width:760px; margin-inline:auto }
+.prose p{ margin:1em 0 }
+.prose hr{ border:0; height:1px; background:var(--ring); margin:24px 0 }
 
 /* Chapter nav buttons */
-.chapter-nav{display:flex; gap:10px; margin:26px 0}
+.chapter-nav{ display:flex; gap:10px; margin:26px 0 }
 .chapter-nav a{
   flex:1; text-align:center; padding:12px 14px; border-radius:12px;
   background:var(--brand); color:#fff; font-weight:700; letter-spacing:.02em;
   border:1px solid #0b4e94; box-shadow:0 1px 0 rgba(255,255,255,.08) inset;
   transition:background .2s ease, transform .1s ease;
 }
-.chapter-nav a:hover{background:var(--brand-2); text-decoration:none}
-.chapter-nav a:active{transform:translateY(1px)}
-.chapter-nav a.disabled{background:#c6cbd3; border-color:#b6bcc5; color:#fff; pointer-events:none}
+.chapter-nav a:hover{ background:var(--brand-2); text-decoration:none }
+.chapter-nav a:active{ transform:translateY(1px) }
+.chapter-nav a.disabled{ background:#c6cbd3; border-color:#b6bcc5; color:#fff; pointer-events:none }
 
 /* Footer */
-.site-footer{padding:24px; text-align:center; color:#7b8794}
+.site-footer{ padding:24px; text-align:center; color:var(--muted) }
 
-/* Chapter themes (header + buttons) */
-.theme-severe  .site-header{background:linear-gradient(180deg,#7f1d1d 0%, var(--color-severe) 100%)}
-.theme-glaring .site-header{background:linear-gradient(180deg,#8a3f00 0%, var(--color-glaring) 100%)}
-.theme-disaster.site-header, .theme-disaster .site-header{background:linear-gradient(180deg,#2d1f1a 0%, var(--color-disaster) 100%)}
-.theme-damage  .site-header{background:linear-gradient(180deg,#3a0f57 0%, var(--color-damage) 100%)}
-.theme-revise  .site-header{background:linear-gradient(180deg,#1f5b25 0%, var(--color-revise) 100%)}
-.theme-oldies  .site-header{background:linear-gradient(180deg,#0f2f57 0%, var(--color-oldies) 100%)}
+/* =========================
+   Monochrome top pages rule
+   （bodyにtheme-*が無い＝共通ページ）
+   ========================= */
+body:not([class*="theme-"]) .chapters a.chapter{ color:var(--ink) }
+body:not([class*="theme-"]) .chapter .kanji{ color:var(--ink) }
+body:not([class*="theme-"]) .chapter .en{ color:var(--muted) }
+body:not([class*="theme-"]) .chapter .desc{ color:var(--ink-2) }
+body:not([class*="theme-"]) .chapters a.chapter:hover{
+  color:var(--ink); text-decoration:none;
+}
 
-.theme-severe  .chapter-nav a{background:var(--color-severe); border-color:#8d1f1f}
-.theme-glaring .chapter-nav a{background:var(--color-glaring); border-color:#a84700}
-.theme-disaster .chapter-nav a{background:var(--color-disaster); border-color:#3b2923}
-.theme-damage  .chapter-nav a{background:var(--color-damage); border-color:#4b1374}
-.theme-revise  .chapter-nav a{background:var(--color-revise); border-color:#1f5b25}
-.theme-oldies  .chapter-nav a{background:var(--color-oldies); border-color:#0f4b92}
+/* =========================
+   Chapter theme overrides
+   ========================= */
+/* Header (gradient) */
+.theme-severe  .site-header{ background:linear-gradient(180deg,#7f1d1d 0%, var(--color-severe) 100%) }
+.theme-glaring .site-header{ background:linear-gradient(180deg,#8a3f00 0%, var(--color-glaring) 100%) }
+.theme-disaster .site-header{ background:linear-gradient(180deg,#2d1f1a 0%, var(--color-disaster) 100%) }
+.theme-damage  .site-header{ background:linear-gradient(180deg,#3a0f57 0%, var(--color-damage) 100%) }
+.theme-revise  .site-header{ background:linear-gradient(180deg,#1f5b25 0%, var(--color-revise) 100%) }
+.theme-oldies  .site-header{ background:linear-gradient(180deg,#0f2f57 0%, var(--color-oldies) 100%) }
+
+/* Buttons */
+.theme-severe  .chapter-nav a{ background:var(--color-severe);  border-color:#8d1f1f }
+.theme-glaring .chapter-nav a{ background:var(--color-glaring); border-color:#a84700 }
+.theme-disaster .chapter-nav a{ background:var(--color-disaster); border-color:#3b2923 }
+.theme-damage  .chapter-nav a{ background:var(--color-damage);  border-color:#4b1374 }
+.theme-revise  .chapter-nav a{ background:var(--color-revise);  border-color:#1f5b25 }
+.theme-oldies  .chapter-nav a{ background:var(--color-oldies);  border-color:#0f4b92 }
