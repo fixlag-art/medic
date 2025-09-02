@@ -1,25 +1,11 @@
-/* =========================================================
-   fixlag.art / medic  共通スタイル（フル版）
-   - レイアウト共通化
-   - 言語切替・章カード
-   - 章カラー（theme-xxxx）
-   - ヘッダー右下クレジット配置
-   ========================================================= */
+# Project: fixlag.art/medic — 共通CSSフルコード
 
-/* ---------- Base tokens ---------- */
+```css
+/* Base */
 :root{
-  /* Ink & surfaces */
-  --ink:#232425;
-  --ink-2:#4b5056;
-  --muted:#7b8794;
-  --bg:#f6f7fa;
-  --card:#ffffff;
-  --ring:#e5eaf1;
-
-  /* Brand (site default) */
-  --brand:#0d66d0;
-  --brand-2:#0a4fa4;
-
+  --ink:#232425; --ink-2:#4b5056; --bg:#fafafa; --card:#ffffff;
+  --brand:#0d66d0; --brand-2:#0a4fa4; --accent:#009167;
+  --ring:#dde6f3; --muted:#7b8794;
   /* Chapter theme colors */
   --color-severe:#c62828;   /* 激 */
   --color-glaring:#e65100;  /* 甚 */
@@ -28,143 +14,88 @@
   --color-revise:#2e7d32;   /* 復 */
   --color-oldies:#1565c0;   /* 旧 */
 }
-
-/* ---------- Reset-ish ---------- */
-*{ box-sizing:border-box; }
-html,body{ height:100%; }
+*{box-sizing:border-box}
+html,body{height:100%}
 body{
-  margin:0;
-  background:var(--bg);
-  color:var(--ink);
-  line-height:1.7;
-  font-family: system-ui, -apple-system, "Hiragino Sans", "Noto Sans JP", Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
+  margin:0; background:var(--bg); color:var(--ink); line-height:1.7;
+  font-family: system-ui, -apple-system, "Hiragino Sans", "Noto Sans JP", Segoe UI, Roboto, sans-serif;
 }
-img{ max-width:100%; display:block; }
-a{ color:var(--brand); text-decoration:none; }
-a:hover{ text-decoration:underline; }
-.container{ max-width:1080px; margin-inline:auto; padding:24px; }
+img{max-width:100%; display:block}
+a{color:var(--brand); text-decoration:none}
+a:hover{text-decoration:underline}
+.container{max-width:1080px; margin-inline:auto; padding:24px}
 
-/* ---------- Header ---------- */
+/* Header */
 .site-header{
   background:linear-gradient(180deg, #0f172a 0%, #121826 100%);
-  color:#fff;
-  padding:24px;
-  padding-bottom:56px; /* クレジット分の余白を常に確保 */
-  position:relative;
-  border-bottom:1px solid #0f253d;
-  overflow:hidden;
+  color:#fff; padding:24px; position:relative; overflow:hidden;
+  border-bottom:1px solid #0f253d; padding-bottom:56px;
 }
-.site-title{ margin:0; font-size:28px; letter-spacing:0.02em; }
-.site-sub{ margin:6px 0 0; color:#c9d4e3; font-size:14px; }
-.lang-switch{ position:absolute; right:16px; top:16px; }
-.lang-switch a{ color:#cfe1ff; font-weight:600; }
+.site-title{margin:0; font-size:28px; letter-spacing:0.02em}
+.site-sub{margin:4px 0 0; color:#c9d4e3; font-size:14px}
+.lang-switch{position:absolute; right:16px; top:16px}
+.lang-switch a{color:#cfe1ff; font-weight:600}
 
-/* ヘッダー右下クレジット（.credit と .credit-badge 両方に対応） */
-.site-header .credit,
+/* Header credit badge */
 .credit-badge{
   position:absolute; right:16px; bottom:12px;
   background:rgba(255,255,255,.08);
   border:1px solid rgba(255,255,255,.25);
-  color:#e8f0ff;
-  font-size:12px;
-  padding:6px 10px;
-  border-radius:10px;
+  color:#e8f0ff; font-size:12px; padding:6px 10px; border-radius:10px;
   backdrop-filter:saturate(120%) blur(6px);
-  -webkit-backdrop-filter:saturate(120%) blur(6px);
   white-space:nowrap;
 }
-.site-header .credit b,
-.credit-badge b{ color:#fff; font-weight:700; }
+.credit-badge b{ color:#fff }
+@media (max-width:520px){.credit-badge{ right:12px; bottom:10px; font-size:11px }}
 
-/* ---------- Top: chapter grid ---------- */
-.chapters{
-  display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
-  gap:16px;
-  margin-top:18px;
-}
+/* Credit (legacy card, not used now) */
+.credit{background:var(--card); border:1px solid var(--ring); border-radius:14px; padding:14px 16px; margin:20px auto}
+.credit p{margin:0; color:var(--ink-2)}
+
+/* Chapter grid */
+.chapters{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; margin-top:18px}
 .chapter{
-  display:flex; flex-direction:column; gap:4px;
-  padding:16px 14px;
-  border-radius:16px;
-  background:var(--card);
-  border:1px solid var(--ring);
+  display:flex; flex-direction:column; gap:4px; padding:16px 14px; border-radius:16px;
+  background:var(--card); border:1px solid var(--ring);
   transition:transform .2s ease, box-shadow .2s ease;
 }
-.chapter:hover{
-  transform:translateY(-2px);
-  box-shadow:0 6px 20px rgba(16,24,40,.08);
-}
-.chapter .kanji{ font-size:40px; line-height:1; font-weight:800; }
-.chapter .en{ font-size:13px; color:var(--muted); text-transform:uppercase; letter-spacing:.08em; }
-.chapter .desc{ font-size:14px; color:var(--ink-2); }
+.chapter:hover{transform:translateY(-2px); box-shadow:0 6px 20px rgba(16,24,40,.08)}
+.chapter .kanji{font-size:40px; line-height:1; font-weight:800}
+.chapter .en{font-size:13px; color:var(--muted); text-transform:uppercase; letter-spacing:.08em}
+.chapter .desc{font-size:14px; color:var(--ink-2)}
 
-/* ---------- Chapter header ---------- */
-.chapter-header{ padding:28px 16px 12px; }
-.chapter-header h1{ margin:0; font-size:36px; }
-.chapter-header p{ margin:6px 0 0; color:var(--ink-2); }
+/* Prose */
+.prose{max-width:760px; margin-inline:auto}
+.prose p{margin:1em 0}
+.prose hr{border:0; height:1px; background:var(--ring); margin:24px 0}
 
-/* ---------- Chapter nav buttons ---------- */
-.chapter-nav{
-  display:flex; gap:10px; margin:26px 0;
-}
+/* Chapter nav buttons */
+.chapter-nav{display:flex; gap:10px; margin:26px 0}
 .chapter-nav a{
-  flex:1; text-align:center;
-  padding:12px 14px;
-  border-radius:12px;
-  background:var(--brand);
-  color:#fff;
-  font-weight:700;
-  letter-spacing:.02em;
-  border:1px solid #0b4e94;
-  box-shadow:0 1px 0 rgba(255,255,255,.08) inset;
-  transition:background .2s ease, transform .1s ease, filter .2s ease;
+  flex:1; text-align:center; padding:12px 14px; border-radius:12px;
+  background:var(--brand); color:#fff; font-weight:700; letter-spacing:.02em;
+  border:1px solid #0b4e94; box-shadow:0 1px 0 rgba(255,255,255,.08) inset;
+  transition:background .2s ease, transform .1s ease;
 }
-.chapter-nav a:hover{
-  text-decoration:none;
-  filter:brightness(.95);
-}
-.chapter-nav a:active{ transform:translateY(1px); }
-.chapter-nav a.disabled{
-  background:#c6cbd3;
-  border-color:#b6bcc5;
-  color:#fff;
-  pointer-events:none;
-}
+.chapter-nav a:hover{background:var(--brand-2); text-decoration:none}
+.chapter-nav a:active{transform:translateY(1px)}
+.chapter-nav a.disabled{background:#c6cbd3; border-color:#b6bcc5; color:#fff; pointer-events:none}
 
-/* ---------- Prose body ---------- */
-.prose{ max-width:760px; margin-inline:auto; }
-.prose p{ margin:1em 0; }
-.prose hr{ border:0; height:1px; background:var(--ring); margin:24px 0; }
+/* Footer */
+.site-footer{padding:24px; text-align:center; color:var(--muted)}
 
-/* ---------- Footer ---------- */
-.site-footer{ padding:24px; text-align:center; color:var(--muted); }
+/* ===== Theme overrides per chapter ===== */
+.theme-severe .site-header{background:linear-gradient(180deg,#7f1d1d 0%, var(--color-severe) 100%)}
+.theme-glaring .site-header{background:linear-gradient(180deg,#8a3f00 0%, var(--color-glaring) 100%)}
+.theme-disaster .site-header{background:linear-gradient(180deg,#2d1f1a 0%, var(--color-disaster) 100%)}
+.theme-damage .site-header{background:linear-gradient(180deg,#3a0f57 0%, var(--color-damage) 100%)}
+.theme-revise .site-header{background:linear-gradient(180deg,#1f5b25 0%, var(--color-revise) 100%)}
+.theme-oldies .site-header{background:linear-gradient(180deg,#0f2f57 0%, var(--color-oldies) 100%)}
 
-/* ---------- Chapter Themes (header + buttons) ---------- */
-/* Header (gradient) */
-.theme-severe   .site-header{ background:linear-gradient(180deg,#7f1d1d 0%, var(--color-severe) 100%); }
-.theme-glaring  .site-header{ background:linear-gradient(180deg,#8a3f00 0%, var(--color-glaring) 100%); }
-.theme-disaster .site-header{ background:linear-gradient(180deg,#2d1f1a 0%, var(--color-disaster) 100%); } /* ← スペースあり */
-.theme-damage   .site-header{ background:linear-gradient(180deg,#3a0f57 0%, var(--color-damage) 100%); }
-.theme-revise   .site-header{ background:linear-gradient(180deg,#1f5b25 0%, var(--color-revise) 100%); }
-.theme-oldies   .site-header{ background:linear-gradient(180deg,#0f2f57 0%, var(--color-oldies) 100%); }
-
-/* Chapter-nav buttons (match theme) */
-.theme-severe   .chapter-nav a{ background:var(--color-severe); border-color:#8d1f1f; }
-.theme-glaring  .chapter-nav a{ background:var(--color-glaring); border-color:#a84700; }
-.theme-disaster .chapter-nav a{ background:var(--color-disaster); border-color:#3b2923; }
-.theme-damage   .chapter-nav a{ background:var(--color-damage); border-color:#4b1374; }
-.theme-revise   .chapter-nav a{ background:var(--color-revise); border-color:#1f5b25; }
-.theme-oldies   .chapter-nav a{ background:var(--color-oldies); border-color:#0f4b92; }
-
-/* ---------- Responsive & a11y helpers ---------- */
-@media (max-width:520px){
-  .site-title{ font-size:22px; }
-  .site-sub{ font-size:12px; }
-  .lang-switch{ right:12px; top:12px; }
-  .site-header .credit, .credit-badge{ right:12px; bottom:10px; font-size:11px; }
-}
-
-@media (prefers-reduced-motion: reduce){
-  *{ transition:none !important; }
-}
+.theme-severe .chapter-nav a{background:var(--color-severe); border-color:#8d1f1f}
+.theme-glaring .chapter-nav a{background:var(--color-glaring); border-color:#a84700}
+.theme-disaster .chapter-nav a{background:var(--color-disaster); border-color:#3b2923}
+.theme-damage .chapter-nav a{background:var(--color-damage); border-color:#4b1374}
+.theme-revise .chapter-nav a{background:var(--color-revise); border-color:#1f5b25}
+.theme-oldies .chapter-nav a{background:var(--color-oldies); border-color:#0f4b92}
+```
